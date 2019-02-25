@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(ggplot2)\nlibrary(Cairo)   # For nicer ggplot2 output when deployed on Linux\n\nui <- fluidPage(\n  # Some custom CSS for a smaller font for preformatted text\n  tags$head(\n    tags$style(HTML(\"\n                    pre, table.table {\n                    font-size: smaller;\n                    }\n                    \"))\n    ),\n  \n  fluidRow(\n    column(width = 4, wellPanel(\n      radioButtons(\"plot_type\", \"Plot type\",\n                   c(\"base\", \"ggplot2\")\n      )\n    )),\n    column(width = 4,\n           # In a plotOutput, passing values for click, dblclick, hover, or brush\n           # will enable those interactions.\n           plotOutput(\"plot1\", height = 350,\n                      # Equivalent to: click = clickOpts(id = \"plot_click\")\n                      click = \"plot_click\",\n                      dblclick = dblclickOpts(\n                        id = \"plot_dblclick\"\n                      ),\n                      hover = hoverOpts(\n                        id = \"plot_hover\"\n                      ),\n                      brush = brushOpts(\n                        id = \"plot_brush\"\n                      )\n           )\n    )\n  ),\n  fluidRow(\n    column(width = 3,\n           verbatimTextOutput(\"click_info\")\n    ),\n    column(width = 3,\n           verbatimTextOutput(\"dblclick_info\")\n    ),\n    column(width = 3,\n           verbatimTextOutput(\"hover_info\")\n    ),\n    column(width = 3,\n           verbatimTextOutput(\"brush_info\")\n    )\n  )\n    )\n\n\nserver <- function(input, output) {\n  output$plot1 <- renderPlot({\n    if (input$plot_type == \"base\") {\n      plot(mtcars$wt, mtcars$mpg)\n    } else if (input$plot_type == \"ggplot2\") {\n      ggplot(mtcars, aes(wt, mpg)) + geom_point()\n    }\n  })\n  \n  output$click_info <- renderPrint({\n    cat(\"input$plot_click:\\n\")\n    str(input$plot_click)\n  })\n  output$hover_info <- renderPrint({\n    cat(\"input$plot_hover:\\n\")\n    str(input$plot_hover)\n  })\n  output$dblclick_info <- renderPrint({\n    cat(\"input$plot_dblclick:\\n\")\n    str(input$plot_dblclick)\n  })\n  output$brush_info <- renderPrint({\n    cat(\"input$plot_brush:\\n\")\n    str(input$plot_brush)\n  })\n  \n}\n\n\nshinyApp(ui, server)",
+    "created" : 1502462189607.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "301094299",
+    "id" : "81B4D904",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1502462193194,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "/* this stylesheet is for the UgaDemos sysstem */\n/* general styles */\nbody{\n  /*background-color:#464646;*/\n /* background: #d9dee0 url(img/body_bg.gif) repeat-x 0 0;*/\n  \n}\n/* simple selectors */\nspan{\n  color:red;\n  font-size:0.4em;\n  height:1em;\n}\n\np{\n  font-size:13px;\n  font-family:arial,sans-serif,helvetica;\n  padding:0 0 1 1px;\n}\nh1{\n  text-align:center;\n  text-shadow:-4px 4px 6px dimgrey;\n  font-size:400%;\n\tcolor:#000;\n\tmargin: 21px 0 17px;\n\tpadding:4px 0;\n}\n\nh2{\n  \n}\n\nh4{\n  padding:4px 0;\n  font-weight:bold;\n}\n\n/* classes */\n.sub{\n  position:relative;\n  bottom:-2ex;\n  left:-13ex;\n}\n",
+    "created" : 1501333379629.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3311214633",
+    "id" : "945EBA12",
+    "lastKnownWriteTime" : 1501145029,
+    "last_content_update" : 1501145029,
+    "path" : "C:/Users/Administrator/Music/theApp/www/ugademostyle.css",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "css"
+}

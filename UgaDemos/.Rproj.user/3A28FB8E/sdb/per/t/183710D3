@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(dplyr)\nlibrary(tidyr)\nlibrary(ggplot2)\ncolor_df <- data.frame(Count1 = c(3,3,5,2),\n                       Count2 = c(4,6,2,0),\n                       Color = c(\"Red\", \"Green\", \"Red\", \"Blue\")\n                       )\nsum_df <- color_df %>%\n  group_by(Color) %>%\n  summarise_all(sum_df)\nsum_df\n\ntidy_df <- sum_df %>%\n  gather(CountName, Count1, -Color)\nggplot(tidy_df, aes(x = Color, fill = CountName, y = Count)) +\n  geom_col(position = \"dodge\")\nlibrary(reshape2)\ndf <- data.frame(year = c(\"1996\",\"1995\",\"1994\"),\n                 births = c(2333,4565,6789),\n                 deaths = c(123,455,463))\ndf.long <- melt(df)\ndf.long\np <- ggplot(df.long,aes(df.long$year,value, fill = variable))+\n      geom_bar(stat = \"identity\", position = \"dodge\" )\np\n\n\nlibrary(tseries)\nlibrary(forecast)\n\npop<-read.csv(\"C:/Users/Administrator/Documents/UgaDemos/population.csv\", header = TRUE)\npop\n\npoptimeseries <- ts(pop$Population/1000, frequency=1, start=c(1996), end=c(2016))\n\nplot(poptimeseries)\naxis(side=1, at=1996:2016, cex.axis=1)\nplot(forecast(poptimeseries,h=5))\n",
+    "created" : 1502268366176.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1583792013",
+    "id" : "183710D3",
+    "lastKnownWriteTime" : 1502435475,
+    "last_content_update" : 1502435475082,
+    "path" : "~/UgaDemos/dummy2.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
